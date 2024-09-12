@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors")
 const SQLconnection = require("./db/connection");
 const User = require("./db/models/userModels");
 const userRouter = require("./routes/userRoutes");
 const app = express();
 app.use(express.json())
+app.use(cors())
 
 //This is what port it will run on that is stated within the .env but if it cant the itll listen on port 5002
 const port = process.env.PORT || 5002;
